@@ -46,10 +46,11 @@ func main() {
 	} else {
 		fullscreenCountdown(start, finish, formatter)
 	}
-	err = beeep.Alert("Break", "Break Dulu Selama 5 Menit", "assets/warning.png")
-	if err != nil {
-		panic(err)
-	}
+	/* 	err = beeep.Alert("Break", "Break Dulu Selama 5 Menit", "assets/warning.png")
+	   	if err != nil {
+	   		panic(err)
+	   	} */
+	nokiaTune()
 
 	if !*silence {
 		fmt.Println("\a") // \a is the bell literal.
