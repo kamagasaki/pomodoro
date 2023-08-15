@@ -29,6 +29,7 @@ func main() {
 	}
 
 	fmt.Printf("Start timer for %s.\n\n", wait)
+	TakeScreenshot()
 
 	if *simple {
 		simpleCountdown(finish, formatter)

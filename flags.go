@@ -15,7 +15,9 @@ const defaultDuration = 25 * time.Minute
 
 var silence = flag.Bool("silence", false, "Don't ring bell after countdown")
 
-var simple = flag.Bool("simple", false, "Display simple countdown")
+//var simple = flag.Bool("simple", false, "Display simple countdown")
+
+var simple = flag.Bool("simple", true, "Display simple countdown")
 
 func init() {
 	const usage = `Usage of pomodoro %s:
