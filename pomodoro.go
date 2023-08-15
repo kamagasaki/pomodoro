@@ -6,6 +6,8 @@ import (
 	"fmt"
 	"os"
 	"time"
+
+	"github.com/gen2brain/beeep"
 )
 
 func main() {
@@ -30,11 +32,23 @@ func main() {
 
 	fmt.Printf("Start timer for %s.\n\n", wait)
 	TakeScreenshot()
+	err = beeep.Beep(beeep.DefaultFreq, 1000)
+	if err != nil {
+		panic(err)
+	}
+	err = beeep.Notify("Pomodoro Info", "Start Melakukan Task 25 menit", "assets/information.png")
+	if err != nil {
+		panic(err)
+	}
 
 	if *simple {
 		simpleCountdown(finish, formatter)
 	} else {
 		fullscreenCountdown(start, finish, formatter)
+	}
+	err = beeep.Alert("Break", "Break Dulu Selama 5 Menit", "assets/warning.png")
+	if err != nil {
+		panic(err)
 	}
 
 	if !*silence {
