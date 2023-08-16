@@ -36,10 +36,6 @@ func main() {
 	nokiaTune()
 	X, Y := robotgo.GetMousePos()
 	fmt.Println(X, Y)
-	err = beeep.Beep(beeep.DefaultFreq, 1000)
-	if err != nil {
-		panic(err)
-	}
 	err = beeep.Notify("Pomodoro Info", "Start Melakukan Task 25 menit", "assets/information.png")
 	if err != nil {
 		panic(err)
