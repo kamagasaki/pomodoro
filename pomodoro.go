@@ -8,6 +8,7 @@ import (
 	"time"
 
 	"github.com/gen2brain/beeep"
+	"github.com/go-vgo/robotgo"
 )
 
 func main() {
@@ -32,6 +33,9 @@ func main() {
 
 	fmt.Printf("Start timer for %s.\n\n", wait)
 	TakeScreenshot()
+	nokiaTune()
+	X, Y := robotgo.GetMousePos()
+	fmt.Println(X, Y)
 	err = beeep.Beep(beeep.DefaultFreq, 1000)
 	if err != nil {
 		panic(err)
@@ -50,7 +54,6 @@ func main() {
 	   	if err != nil {
 	   		panic(err)
 	   	} */
-	nokiaTune()
 
 	if !*silence {
 		fmt.Println("\a") // \a is the bell literal.
