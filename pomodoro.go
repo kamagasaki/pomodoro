@@ -43,13 +43,11 @@ func main() {
 
 	if *simple {
 		simpleCountdown(finish, formatter)
+		beeep.Alert("Break", "Break Dulu Selama 5 Menit", "assets/warning.png")
+		simpleCountdown(finish, formatter)
 	} else {
 		fullscreenCountdown(start, finish, formatter)
 	}
-	/* 	err = beeep.Alert("Break", "Break Dulu Selama 5 Menit", "assets/warning.png")
-	   	if err != nil {
-	   		panic(err)
-	   	} */
 
 	if !*silence {
 		fmt.Println("\a") // \a is the bell literal.
