@@ -3,7 +3,6 @@ module github.com/bukped/pomodoro
 go 1.21.0
 
 require (
-	github.com/carlmjohnson/pomodoro v0.21.1
 	github.com/gen2brain/beeep v0.0.0-20230812223410-3e1549ef0811
 	github.com/go-vgo/robotgo v0.100.10
 	github.com/kbinani/screenshot v0.0.0-20230812210009-b87d31814237

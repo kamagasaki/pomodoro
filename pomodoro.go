@@ -12,15 +12,15 @@ import (
 )
 
 func main() {
+	nokiaTune()
 	start := time.Now()
-
 	finish, err := waitDuration(start)
 	if err != nil {
 		flag.Usage()
 		os.Exit(2)
 	}
 	wait := finish.Sub(start)
-
+	fmt.Printf("Start timer for %s.\n\n", wait)
 	formatter := formatSeconds
 	switch {
 	case wait >= 24*time.Hour:
@@ -30,28 +30,33 @@ func main() {
 	case wait >= time.Minute:
 		formatter = formatMinutes
 	}
-
-	fmt.Printf("Start timer for %s.\n\n", wait)
-	TakeScreenshot()
-	nokiaTune()
+	beeep.Notify("Pomodoro Info", "Start Melakukan Task 25 menit", "assets/information.png")
 	X, Y := robotgo.GetMousePos()
 	fmt.Println(X, Y)
-	err = beeep.Notify("Pomodoro Info", "Start Melakukan Task 25 menit", "assets/information.png")
+	simpleCountdown(finish, formatter)
+	TakeScreenshot()
+
+	nokiaTune()
+	start = time.Now()
+	finish, err = waitDuration(start)
 	if err != nil {
-		panic(err)
+		flag.Usage()
+		os.Exit(2)
 	}
+	wait = finish.Sub(start)
+	fmt.Printf("Start timer for %s.\n\n", wait)
+	formatter = formatSeconds
+	switch {
+	case wait >= 24*time.Hour:
+		formatter = formatDays
+	case wait >= time.Hour:
+		formatter = formatHours
+	case wait >= time.Minute:
+		formatter = formatMinutes
+	}
+	beeep.Notify("Pomodoro Info", "STOP!!!! Break Dulu 5 menit", "assets/information.png")
+	TakeScreenshot()
+	fmt.Println(X, Y)
+	simpleCountdownBreak(finish, formatter, X, Y)
 
-	if *simple {
-		simpleCountdown(finish, formatter)
-		beeep.Alert("Break", "Break Dulu Selama 5 Menit", "assets/warning.png")
-		simpleCountdown(finish, formatter)
-	} else {
-		fullscreenCountdown(start, finish, formatter)
-	}
-
-	if !*silence {
-		fmt.Println("\a") // \a is the bell literal.
-	} else {
-		fmt.Println()
-	}
 }

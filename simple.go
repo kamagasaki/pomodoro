@@ -6,6 +6,7 @@ import (
 	"os"
 	"time"
 
+	"github.com/go-vgo/robotgo"
 	"github.com/kbinani/screenshot"
 )
 
@@ -16,6 +17,19 @@ func simpleCountdown(target time.Time, formatter func(time.Duration) string) {
 			fmt.Print("Countdown: ", formatter(0), "   \r")
 			return
 		}
+		fmt.Fprint(os.Stdout, "Countdown: ", formatter(timeLeft), "   \r")
+		os.Stdout.Sync()
+	}
+}
+
+func simpleCountdownBreak(target time.Time, formatter func(time.Duration) string, X, Y int) {
+	for range time.Tick(100 * time.Millisecond) {
+		timeLeft := -time.Since(target)
+		if timeLeft < 0 {
+			fmt.Print("Countdown: ", formatter(0), "   \r")
+			return
+		}
+		robotgo.DragSmooth(X, Y)
 		fmt.Fprint(os.Stdout, "Countdown: ", formatter(timeLeft), "   \r")
 		os.Stdout.Sync()
 	}
