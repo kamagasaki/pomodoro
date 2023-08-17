@@ -14,7 +14,11 @@ Go to Package Release
 
 Release dev
 ```sh
-go get -u all
+$env:GOOS = 'linux'
+$env:GOOS = 'windows'
+$env:GOOS = 'darwin'
+$env:CGO_ENABLED = '1'
+
 go mod tidy
 git tag                                 #check current version
 git tag v0.0.3                          #set tag version
