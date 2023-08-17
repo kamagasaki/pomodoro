@@ -1,4 +1,7 @@
 # pomodoro
+
+![image](https://github.com/bukped/pomodoro/assets/11188109/6488ed71-f5fb-459f-8d52-6e839c1dcf22)
+
 Command line [pomodoro timer](https://en.wikipedia.org/wiki/Pomodoro_Technique), implemented in Go.
 
 ## Installation
