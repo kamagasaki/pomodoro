@@ -22,7 +22,7 @@ func simpleCountdown(target time.Time, formatter func(time.Duration) string) {
 	}
 }
 
-func simpleCountdownBreak(target time.Time, formatter func(time.Duration) string, X, Y int) {
+func SimpleBreakCountdown(target time.Time, formatter func(time.Duration) string, X, Y int) {
 	for range time.Tick(100 * time.Millisecond) {
 		timeLeft := -time.Since(target)
 		if timeLeft < 0 {
