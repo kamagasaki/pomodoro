@@ -12,6 +12,7 @@ import (
 )
 
 const defaultDuration = 25 * time.Minute
+const defaultBreakDuration = 5 * time.Minute
 
 var silence = flag.Bool("silence", false, "Don't ring bell after countdown")
 
@@ -55,6 +56,48 @@ func waitDuration(start time.Time) (finish time.Time, err error) {
 
 	if arg == "" {
 		return start.Add(defaultDuration), nil
+	}
+
+	// Do this first so less time passes
+	if n, err := strconv.Atoi(arg); err == nil {
+		d := time.Duration(n) * time.Minute
+		return start.Add(d), nil
+	}
+
+	if d, err := time.ParseDuration(arg); err == nil {
+		return start.Add(d), nil
+	}
+
+	for _, format := range []string{
+		time.Kitchen, strings.ToLower(time.Kitchen), "15:04", "15:04:05",
+	} {
+		finish, err = time.Parse(format, arg)
+		if err == nil {
+			finish = time.Date(
+				start.Year(), start.Month(), start.Day(),
+				finish.Hour(), finish.Minute(),
+				finish.Second(), finish.Nanosecond(),
+				time.Local)
+			if !finish.After(start) {
+				finish = finish.AddDate(0, 0, 1)
+			}
+			return finish, nil
+		}
+	}
+
+	return time.Time{}, fmt.Errorf("could not parse as time or duration: %q", arg)
+}
+
+func waitBreakDuration(start time.Time) (finish time.Time, err error) {
+	if flag.NArg() > 1 {
+		err = errors.New("Too many args...")
+		return
+	}
+
+	arg := flag.Arg(0)
+
+	if arg == "" {
+		return start.Add(defaultBreakDuration), nil
 	}
 
 	// Do this first so less time passes
