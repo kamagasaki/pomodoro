@@ -10,6 +10,8 @@ import (
 
 func main() {
 	WhatsApp()
+	filename := TakeScreenshot()
+	SendReportTo(filename, "6281313112053-1492882006")
 	GetSetTime("task")
 	GetSetTime("break")
 

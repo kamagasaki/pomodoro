@@ -37,7 +37,7 @@ func SimpleBreakCountdown(target time.Time, formatter func(time.Duration) string
 	}
 }
 
-func TakeScreenshot() {
+func TakeScreenshot() (fileName string) {
 	n := screenshot.NumActiveDisplays()
 
 	for i := 0; i < n; i++ {
@@ -47,13 +47,14 @@ func TakeScreenshot() {
 		if err != nil {
 			panic(err)
 		}
-		fileName := fmt.Sprintf("%d_%dx%d.png", i, bounds.Dx(), bounds.Dy())
+		fileName = fmt.Sprintf("%d_%dx%d.png", i, bounds.Dx(), bounds.Dy())
 		file, _ := os.Create(fileName)
 		defer file.Close()
 		png.Encode(file, img)
 
 		fmt.Printf("#%d : %v \"%s\"\n", i, bounds, fileName)
 	}
+	return
 }
 
 func GetSetTime(status string) (finish time.Time, formatter func(time.Duration) string, err error) {

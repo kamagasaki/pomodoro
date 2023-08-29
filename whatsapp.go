@@ -3,10 +3,13 @@ package main
 import (
 	"context"
 	"fmt"
+	"os"
 
+	"github.com/aiteung/atmessage"
 	_ "github.com/mattn/go-sqlite3"
 	"go.mau.fi/whatsmeow"
 	"go.mau.fi/whatsmeow/store/sqlstore"
+	"go.mau.fi/whatsmeow/types"
 	waLog "go.mau.fi/whatsmeow/util/log"
 )
 
@@ -52,4 +55,19 @@ func WhatsApp() {
 		}
 	}
 
+}
+
+func SendReportTo(filename string, groupid string) {
+	var to = types.JID{
+		User:   groupid,
+		Server: "g.us",
+	}
+	filebyte, err := os.ReadFile(filename)
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	//msg := "File dikirim ke server : " + filename
+	//atmessage.SendMessage(msg, to, WAclient)
+	atmessage.SendDocumentMessage(filebyte, "skrinsut.csv", "Pomodoro Report", "image/png", to, WAclient)
 }
