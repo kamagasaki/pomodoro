@@ -41,7 +41,7 @@ func WhatsApp() {
 				openbrowser("https://getqr.github.io/#" + evt.Code)
 				fmt.Println("Silahkan Scan QR Code Yang Terbuka di Browser dengan Menggunakan Aplikasi WhatsApp Linked Device")
 			} else {
-				fmt.Println("Login event:", evt.Event)
+				fmt.Println("Login WhatsApp:", evt.Event)
 			}
 		}
 	} else {
