@@ -9,10 +9,14 @@ import (
 	"strconv"
 	"strings"
 	"time"
+
+	"go.mau.fi/whatsmeow"
 )
 
 const defaultDuration = 25 * time.Minute
 const defaultBreakDuration = 5 * time.Minute
+
+var WAclient *whatsmeow.Client
 
 var silence = flag.Bool("silence", false, "Don't ring bell after countdown")
 

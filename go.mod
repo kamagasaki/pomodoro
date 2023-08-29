@@ -6,15 +6,19 @@ require (
 	github.com/gen2brain/beeep v0.0.0-20230812223410-3e1549ef0811
 	github.com/go-vgo/robotgo v0.100.10
 	github.com/kbinani/screenshot v0.0.0-20230812210009-b87d31814237
+	github.com/mattn/go-sqlite3 v1.14.17
 	github.com/nsf/termbox-go v1.1.1
+	go.mau.fi/whatsmeow v0.0.0-20230824151650-6da2abde6b7c
 )
 
 require (
+	filippo.io/edwards25519 v1.0.0 // indirect
 	github.com/StackExchange/wmi v1.2.1 // indirect
 	github.com/gen2brain/shm v0.0.0-20230802011745-f2460f5984f7 // indirect
 	github.com/go-ole/go-ole v1.2.6 // indirect
 	github.com/go-toast/toast v0.0.0-20190211030409-01e6764cf0a4 // indirect
 	github.com/godbus/dbus/v5 v5.1.0 // indirect
+	github.com/gorilla/websocket v1.5.0 // indirect
 	github.com/jezek/xgb v1.1.0 // indirect
 	github.com/lxn/win v0.0.0-20210218163916-a377121e959e // indirect
 	github.com/mattn/go-runewidth v0.0.9 // indirect
@@ -31,6 +35,10 @@ require (
 	github.com/vcaesar/imgo v0.30.0 // indirect
 	github.com/vcaesar/keycode v0.10.0 // indirect
 	github.com/vcaesar/tt v0.20.0 // indirect
+	go.mau.fi/libsignal v0.1.0 // indirect
+	go.mau.fi/util v0.0.0-20230805154123-3981666a86f1 // indirect
+	golang.org/x/crypto v0.8.0 // indirect
 	golang.org/x/image v0.0.0-20211028202545-6944b10bf410 // indirect
 	golang.org/x/sys v0.11.0 // indirect
+	google.golang.org/protobuf v1.30.0 // indirect
 )
