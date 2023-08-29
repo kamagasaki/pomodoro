@@ -3,7 +3,7 @@ module github.com/bukped/pomodoro
 go 1.21.0
 
 require (
-	github.com/aiteung/atmessage v0.0.27
+	github.com/aiteung/atmessage v0.0.30
 	github.com/gen2brain/beeep v0.0.0-20230812223410-3e1549ef0811
 	github.com/go-vgo/robotgo v0.100.10
 	github.com/kbinani/screenshot v0.0.0-20230812210009-b87d31814237
@@ -38,8 +38,8 @@ require (
 	github.com/vcaesar/keycode v0.10.0 // indirect
 	github.com/vcaesar/tt v0.20.0 // indirect
 	go.mau.fi/libsignal v0.1.0 // indirect
-	go.mau.fi/util v0.0.0-20230805154123-3981666a86f1 // indirect
-	golang.org/x/crypto v0.10.0 // indirect
+	go.mau.fi/util v0.0.0-20230805171708-199bf3eec776 // indirect
+	golang.org/x/crypto v0.12.0 // indirect
 	golang.org/x/image v0.0.0-20211028202545-6944b10bf410 // indirect
 	golang.org/x/sys v0.11.0 // indirect
 	google.golang.org/protobuf v1.31.0 // indirect

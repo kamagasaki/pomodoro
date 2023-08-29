@@ -69,5 +69,5 @@ func SendReportTo(filename string, groupid string) {
 
 	//msg := "File dikirim ke server : " + filename
 	//atmessage.SendMessage(msg, to, WAclient)
-	atmessage.SendDocumentMessage(filebyte, "skrinsut.csv", "Pomodoro Report", "image/png", to, WAclient)
+	atmessage.SendImageMessage(filebyte, "Pomodoro Report", to, WAclient)
 }
