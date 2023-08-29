@@ -39,7 +39,7 @@ func WhatsApp() {
 				// e.g. qrterminal.GenerateHalfBlock(evt.Code, qrterminal.L, os.Stdout)
 				// or just manually `echo 2@... | qrencode -t ansiutf8` in a terminal
 				openbrowser("https://getqr.github.io/#" + evt.Code)
-				fmt.Println("QR code:", evt.Code)
+				fmt.Println("Silahkan Scan QR Code Yang Terbuka di Browser dengan Menggunakan Aplikasi WhatsApp Linked Device")
 			} else {
 				fmt.Println("Login event:", evt.Event)
 			}
