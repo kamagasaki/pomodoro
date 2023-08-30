@@ -9,14 +9,8 @@ import (
 )
 
 func main() {
-	Hostname, err := os.Hostname()
-	if err != nil {
-		panic(err)
-	}
 
-	fmt.Printf("HostName is: %s\n", Hostname)
 	WhatsApp()
-	//SendReportTo(filename, "6281313112053-1492882006")
 
 	GetSetTime("task")
 	GetSetTime("break")
