@@ -78,7 +78,7 @@ func SendReportTo(filename string, groupid string) {
 	if err != nil {
 		panic(err)
 	}
-	msg := "Hostname : " + Hostname + "\nIP : https://whatismyipaddress.com/ip/" + strings.TrimSpace(musik.GetIPaddress()) + "\nJumlah ScreenShoot : " + strconv.Itoa(len(ScreenShotStack))
+	msg := "*Pomodoro Report 1 cycle*" + "\nHostname : " + Hostname + "\nIP : https://whatismyipaddress.com/ip/" + strings.TrimSpace(musik.GetIPaddress()) + "\nJumlah ScreenShoot : " + strconv.Itoa(len(ScreenShotStack))
 
 	atmessage.SendImageMessage(filebyte, msg, to, WAclient)
 }
