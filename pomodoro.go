@@ -6,12 +6,20 @@ import (
 	"os"
 	"os/signal"
 	"strconv"
+	"strings"
 	"syscall"
 
 	"github.com/gen2brain/beeep"
 )
 
 func main() {
+	wag := os.Getenv("POMOGROUPWA")
+	if wag == "" {
+		fmt.Println("Please Input Your WhatsApp Group ID from Iteung : ")
+		fmt.Scanln(&wag)
+		wag = strings.TrimSpace(wag)
+		os.Setenv("POMOGROUPWA", wag)
+	}
 
 	WhatsApp()
 
@@ -31,7 +39,7 @@ func main() {
 
 	img := GetRandomScreensot(ScreenShotStack)
 	filename := ImageToFile(img)
-	SendReportTo(filename, "6281313112053-1492882006")
+	SendReportTo(filename, wag)
 	msg := "Selamat!!!!! 1 sesi pomodoro selesai dengan jumlah skrinsutan:" + strconv.Itoa(len(ScreenShotStack))
 
 	beeep.Alert("Pomodoro Info", msg, "assets/information.png")
