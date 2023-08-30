@@ -4,6 +4,7 @@ go 1.21.0
 
 require (
 	github.com/aiteung/atmessage v0.0.30
+	github.com/aiteung/musik v0.0.5
 	github.com/gen2brain/beeep v0.0.0-20230812223410-3e1549ef0811
 	github.com/go-vgo/robotgo v0.100.10
 	github.com/google/uuid v1.3.1
@@ -16,7 +17,6 @@ require (
 require (
 	filippo.io/edwards25519 v1.0.0 // indirect
 	github.com/StackExchange/wmi v1.2.1 // indirect
-	github.com/aiteung/musik v0.0.5 // indirect
 	github.com/gen2brain/shm v0.0.0-20230802011745-f2460f5984f7 // indirect
 	github.com/go-ole/go-ole v1.2.6 // indirect
 	github.com/go-toast/toast v0.0.0-20190211030409-01e6764cf0a4 // indirect

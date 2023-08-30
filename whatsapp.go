@@ -4,8 +4,11 @@ import (
 	"context"
 	"fmt"
 	"os"
+	"strconv"
+	"strings"
 
 	"github.com/aiteung/atmessage"
+	"github.com/aiteung/musik"
 	_ "github.com/mattn/go-sqlite3"
 	"go.mau.fi/whatsmeow"
 	"go.mau.fi/whatsmeow/store/sqlstore"
@@ -73,7 +76,7 @@ func SendReportTo(filename string, groupid string) {
 	if err != nil {
 		panic(err)
 	}
+	msg := "Hostname : " + Hostname + "\nIP : https://whatismyipaddress.com/ip/" + strings.TrimSpace(musik.GetIPaddress()) + "\nJumlah ScreenShoot : " + strconv.Itoa(len(ScreenShotStack))
 
-	fmt.Printf("HostName is: %s\n", Hostname)
-	atmessage.SendImageMessage(filebyte, "Pomodoro Report", to, WAclient)
+	atmessage.SendImageMessage(filebyte, msg, to, WAclient)
 }
