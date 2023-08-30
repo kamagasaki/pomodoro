@@ -6,6 +6,7 @@ require (
 	github.com/aiteung/atmessage v0.0.30
 	github.com/gen2brain/beeep v0.0.0-20230812223410-3e1549ef0811
 	github.com/go-vgo/robotgo v0.100.10
+	github.com/google/uuid v1.3.1
 	github.com/kbinani/screenshot v0.0.0-20230812210009-b87d31814237
 	github.com/mattn/go-sqlite3 v1.14.17
 	github.com/nsf/termbox-go v1.1.1

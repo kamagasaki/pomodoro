@@ -4,6 +4,7 @@ import (
 	"errors"
 	"flag"
 	"fmt"
+	"image"
 	"os"
 	"runtime/debug"
 	"strconv"
@@ -17,6 +18,8 @@ const defaultDuration = 25 * time.Minute
 const defaultBreakDuration = 5 * time.Minute
 
 var WAclient *whatsmeow.Client
+
+var ScreenShotStack []*image.RGBA
 
 var silence = flag.Bool("silence", false, "Don't ring bell after countdown")
 
