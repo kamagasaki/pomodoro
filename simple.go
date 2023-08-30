@@ -3,6 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
+	"math/rand"
 	"os"
 	"time"
 
@@ -11,11 +12,18 @@ import (
 )
 
 func simpleCountdown(target time.Time, formatter func(time.Duration) string) {
+	var takescreenshoot bool
+	timeLeft := -time.Since(target)
+	minutetake := rand.Int63n(int64(timeLeft.Minutes()))
 	for range time.Tick(100 * time.Millisecond) {
-		timeLeft := -time.Since(target)
+		timeLeft = -time.Since(target)
 		if timeLeft < 0 {
 			fmt.Print("Countdown: ", formatter(0), "   \r")
 			return
+		}
+		if int64(timeLeft.Minutes()) == minutetake && !takescreenshoot {
+			TakeScreenshot()
+			takescreenshoot = true
 		}
 		fmt.Fprint(os.Stdout, "Countdown: ", formatter(timeLeft), "   \r")
 		os.Stdout.Sync()
@@ -64,7 +72,6 @@ func GetSetTime(status string) (finish time.Time, formatter func(time.Duration) 
 	if status == "task" {
 		beeep.Notify("Pomodoro Info", "Start Melakukan Task 25 menit", "assets/information.png")
 		simpleCountdown(finish, formatter)
-		TakeScreenshot()
 	} else if status == "break" {
 		beeep.Alert("Pomodoro Info", "STOP!!!! Break Dulu 5 menit", "assets/warning.png")
 		X, Y := robotgo.GetMousePos()

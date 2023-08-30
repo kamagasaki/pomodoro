@@ -10,7 +10,7 @@ import (
 	"github.com/kbinani/screenshot"
 )
 
-func TakeScreenshot() (fileName string) {
+func TakeScreenshot() {
 	n := screenshot.NumActiveDisplays()
 
 	for i := 0; i < n; i++ {
@@ -22,7 +22,6 @@ func TakeScreenshot() (fileName string) {
 		}
 		ScreenShotStack = append(ScreenShotStack, img)
 	}
-	return
 }
 
 func ImageToFile(img *image.RGBA) (filename string) {
