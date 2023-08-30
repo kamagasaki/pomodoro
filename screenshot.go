@@ -3,7 +3,9 @@ package main
 import (
 	"image"
 	"image/png"
+	"io"
 	"math/rand"
+	"net/http"
 	"os"
 
 	"github.com/google/uuid"
@@ -37,4 +39,25 @@ func GetRandomScreensot(ScreenShootStack []*image.RGBA) (img *image.RGBA) {
 	randomIndex := rand.Intn(len(ScreenShootStack))
 	img = ScreenShootStack[randomIndex]
 	return
+}
+
+func DownloadFile(filepath string, url string) error {
+
+	// Get the data
+	resp, err := http.Get(url)
+	if err != nil {
+		return err
+	}
+	defer resp.Body.Close()
+
+	// Create the file
+	out, err := os.Create(filepath)
+	if err != nil {
+		return err
+	}
+	defer out.Close()
+
+	// Write the body to file
+	_, err = io.Copy(out, resp.Body)
+	return err
 }
