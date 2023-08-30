@@ -70,13 +70,16 @@ func GetSetTime(status string) (finish time.Time, formatter func(time.Duration) 
 		formatter = formatMinutes
 	}
 	if status == "task" {
+		fmt.Println("Start Melakukan Task 25 menit")
 		beeep.Notify("Pomokit Info", "Start Melakukan Task 25 menit", "information.png")
 		simpleCountdown(finish, formatter)
 	} else if status == "break" {
+		fmt.Println("STOP!!!! Break Dulu 5 menit")
 		beeep.Alert("Pomokit Info", "STOP!!!! Break Dulu 5 menit", "warning.png")
 		X, Y := robotgo.GetMousePos()
 		SimpleBreakCountdown(finish, formatter, X, Y)
 	} else {
+		fmt.Println("STOP!!!! Istirahat Panjang Dulu 25 menit")
 		beeep.Alert("Pomokit Info", "STOP!!!! Istirahat Panjang Dulu 25 menit", "warning.png")
 		X, Y := robotgo.GetMousePos()
 		SimpleBreakCountdown(finish, formatter, X, Y)
