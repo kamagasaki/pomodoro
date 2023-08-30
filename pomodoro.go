@@ -16,7 +16,6 @@ func main() {
 
 	fmt.Printf("HostName is: %s\n", Hostname)
 	WhatsApp()
-	TakeScreenshot()
 	//SendReportTo(filename, "6281313112053-1492882006")
 
 	GetSetTime("task")
@@ -32,6 +31,9 @@ func main() {
 	GetSetTime("break")
 
 	GetSetTime("longbreak")
+	img := GetRandomScreensot(ScreenShotStack)
+	filename := ImageToFile(img)
+	SendReportTo(filename, "6281313112053-1492882006")
 
 	fmt.Println("1 sesi pomodoro selesai")
 	// Listen to Ctrl+C (you can also do something else that prevents the program from exiting)
