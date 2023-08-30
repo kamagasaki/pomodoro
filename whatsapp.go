@@ -69,5 +69,11 @@ func SendReportTo(filename string, groupid string) {
 
 	//msg := "File dikirim ke server : " + filename
 	//atmessage.SendMessage(msg, to, WAclient)
+	Hostname, err := os.Hostname()
+	if err != nil {
+		panic(err)
+	}
+
+	fmt.Printf("HostName is: %s\n", Hostname)
 	atmessage.SendImageMessage(filebyte, "Pomodoro Report", to, WAclient)
 }
