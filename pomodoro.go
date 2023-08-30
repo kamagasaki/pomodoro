@@ -13,12 +13,12 @@ import (
 )
 
 func main() {
+	go DownloadFile("information.png", "https://pomokit.github.io/pomodoro/information.png")
+	go DownloadFile("warning.png", "https://pomokit.github.io/pomodoro/warning.png")
 	wag := os.Getenv("POMOGROUPWA")
 	if wag == "" {
-		go DownloadFile("information.png", "https://pomokit.github.io/pomodoro/information.png")
-		go DownloadFile("warning.png", "https://pomokit.github.io/pomodoro/warning.png")
-		beeep.Alert("Pomokit Info", "Please Input Your WhatsApp Group ID from Iteung", "information.png")
-		fmt.Println("Please Input Your WhatsApp Group ID from Iteung : ")
+		beeep.Alert("Pomokit Info", "Please Input Your WhatsApp Group ID with keyword : Iteung minta id grup : ", "information.png")
+		fmt.Println("Please Input Your WhatsApp Group ID with keyword : Iteung minta id grup : ")
 		fmt.Scanln(&wag)
 		wag = strings.TrimSpace(wag)
 		os.Setenv("POMOGROUPWA", wag)
