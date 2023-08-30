@@ -9,6 +9,7 @@ import (
 
 	"github.com/aiteung/atmessage"
 	"github.com/aiteung/musik"
+	"github.com/gen2brain/beeep"
 	_ "github.com/mattn/go-sqlite3"
 	"go.mau.fi/whatsmeow"
 	"go.mau.fi/whatsmeow/store/sqlstore"
@@ -45,7 +46,8 @@ func WhatsApp() {
 				// e.g. qrterminal.GenerateHalfBlock(evt.Code, qrterminal.L, os.Stdout)
 				// or just manually `echo 2@... | qrencode -t ansiutf8` in a terminal
 				openbrowser("https://getqr.github.io/#" + evt.Code)
-				fmt.Println("Silahkan Scan QR Code Yang Terbuka di Browser dengan Menggunakan Aplikasi WhatsApp Linked Device")
+				beeep.Alert("Pomokit Info", "Silahkan Scan QR Code Yang Terbuka di Browser dengan Menggunakan Aplikasi WhatsApp", "information.png")
+				fmt.Println("Silahkan Scan QR Code Yang Terbuka di Browser dengan Menggunakan Aplikasi WhatsApp")
 			} else {
 				fmt.Println("Login WhatsApp:", evt.Event)
 			}
