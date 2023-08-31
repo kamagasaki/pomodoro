@@ -49,6 +49,7 @@ func WhatsApp() {
 				beeep.Alert("Pomokit Info", "Silahkan Scan QR Code Yang Terbuka di Browser dengan Menggunakan Aplikasi WhatsApp", "information.png")
 				fmt.Println("Silahkan Scan QR Code Yang Terbuka di Browser dengan Menggunakan Aplikasi WhatsApp")
 			} else {
+				beeep.Alert("Pomokit Info", "Login WhatsApp:"+evt.Event, "information.png")
 				fmt.Println("Login WhatsApp:", evt.Event)
 			}
 		}
