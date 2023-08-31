@@ -83,7 +83,7 @@ func FiletoString(filepath string) (content string) {
 	if FileExists(filepath) {
 		bytecontent, err := os.ReadFile(filepath)
 		if err != nil {
-			log.Fatal(err)
+			log.Println(err)
 		} else {
 			content = string(bytecontent)
 		}
