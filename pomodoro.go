@@ -1,4 +1,3 @@
-// pormodoro timer
 package main
 
 import (
@@ -13,14 +12,20 @@ import (
 )
 
 func main() {
-	go DownloadFile("information.png", "https://pomokit.github.io/pomodoro/information.png")
-	go DownloadFile("warning.png", "https://pomokit.github.io/pomodoro/warning.png")
-	wag := os.Getenv("POMOGROUPWA")
+	if !FileExists("information.png") {
+		go DownloadFile("information.png", InfoImageURL)
+	}
+	if !FileExists("warning.png") {
+		go DownloadFile("warning.png", WarningImageURL)
+	}
+
+	wag := FiletoString("wag.info")
 	if wag == "" {
 		beeep.Alert("Pomokit Info", "Please Input Your WhatsApp Group ID with keyword : Iteung minta id grup : ", "information.png")
 		fmt.Println("Please Input Your WhatsApp Group ID with keyword : Iteung minta id grup : ")
 		fmt.Scanln(&wag)
 		wag = strings.TrimSpace(wag)
+		StringtoFile(wag, "wag.info")
 		os.Setenv("POMOGROUPWA", wag)
 	}
 

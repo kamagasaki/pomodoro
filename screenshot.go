@@ -4,6 +4,7 @@ import (
 	"image"
 	"image/png"
 	"io"
+	"log"
 	"math/rand"
 	"net/http"
 	"os"
@@ -60,4 +61,33 @@ func DownloadFile(filepath string, url string) error {
 	// Write the body to file
 	_, err = io.Copy(out, resp.Body)
 	return err
+}
+
+func FileExists(filename string) bool {
+	info, err := os.Stat(filename)
+	if os.IsNotExist(err) {
+		return false
+	}
+	return !info.IsDir()
+}
+
+func StringtoFile(content string, filepath string) {
+	data := []byte(content)
+	err := os.WriteFile(filepath, data, 0)
+	if err != nil {
+		log.Fatal(err)
+	}
+}
+
+func FiletoString(filepath string) (content string) {
+	if FileExists(filepath) {
+		bytecontent, err := os.ReadFile(filepath)
+		if err != nil {
+			log.Fatal(err)
+		} else {
+			content = string(bytecontent)
+		}
+	}
+	return
+
 }

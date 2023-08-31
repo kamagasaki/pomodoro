@@ -5,7 +5,7 @@
 Command line [pomodoro timer](https://en.wikipedia.org/wiki/Pomodoro_Technique), implemented in Go.
 
 ## Installation
-Go to Package Release
+Go to [Release Page](https://github.com/pomokit/pomodoro/releases)
 
 ## Usage
 4 pomodoro 1 long break is 1 cycle
