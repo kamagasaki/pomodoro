@@ -45,7 +45,10 @@ func WhatsApp() {
 				// Render the QR code here
 				// e.g. qrterminal.GenerateHalfBlock(evt.Code, qrterminal.L, os.Stdout)
 				// or just manually `echo 2@... | qrencode -t ansiutf8` in a terminal
-				openbrowser("https://getqr.github.io/#" + evt.Code)
+				urlqr := "https://getqr.github.io/#" + evt.Code
+				fmt.Println("Membuka URL : ")
+				fmt.Println(urlqr)
+				openbrowser(urlqr)
 				beeep.Alert("Pomokit Info", "Silahkan Scan QR Code Yang Terbuka di Browser dengan Menggunakan Aplikasi WhatsApp", "information.png")
 				fmt.Println("Silahkan Scan QR Code Yang Terbuka di Browser dengan Menggunakan Aplikasi WhatsApp")
 			} else {
