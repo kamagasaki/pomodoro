@@ -1,3 +1,5 @@
+aidanwoods.dev/go-paseto v1.2.0 h1:rHmD2Q+cM9CQ1Ia94WT9YZBmMettu2mLyxtw+bg8ZeM=
+aidanwoods.dev/go-paseto v1.2.0/go.mod h1:r9pU9VBs5sn5WO5mOeYSOQTrTDSyCnbVT/dA7QTFAdc=
 filippo.io/edwards25519 v1.0.0 h1:0wAIcmJUqRdI8IJ/3eGi5/HwXZWPujYXXlkrQogz0Ek=
 filippo.io/edwards25519 v1.0.0/go.mod h1:N1IkdkCkiLB6tki+MYJoSx2JTY9NUlxZE7eHn5EwJns=
 github.com/BurntSushi/freetype-go v0.0.0-20160129220410-b763ddbfe298/go.mod h1:D+QujdIlUNfa0igpNMk6UIvlb6C252URs4yupRUV4lQ=
@@ -74,6 +76,8 @@ github.com/vcaesar/keycode v0.10.0 h1:Qx5QE8ZXHyRyjoA2QOxBp25OKMKB+zxMVqm0FWGV0d
 github.com/vcaesar/keycode v0.10.0/go.mod h1:JNlY7xbKsh+LAGfY2j4M3znVrGEm5W1R8s/Uv6BJcfQ=
 github.com/vcaesar/tt v0.20.0 h1:9t2Ycb9RNHcP0WgQgIaRKJBB+FrRdejuaL6uWIHuoBA=
 github.com/vcaesar/tt v0.20.0/go.mod h1:GHPxQYhn+7OgKakRusH7KJ0M5MhywoeLb8Fcffs/Gtg=
+github.com/whatsauth/watoken v0.1.2 h1:dGSEFjP2I+BRbLIq84mJ6Rwgx7B/OwBpKtZJr4dQSOs=
+github.com/whatsauth/watoken v0.1.2/go.mod h1:Go11cZ4yTib8jo0oERgy6ufeGiELU88GnX5Upx29ZEc=
 go.mau.fi/libsignal v0.1.0 h1:vAKI/nJ5tMhdzke4cTK1fb0idJzz1JuEIpmjprueC+c=
 go.mau.fi/libsignal v0.1.0/go.mod h1:R8ovrTezxtUNzCQE5PH30StOQWWeBskBsWE55vMfY9I=
 go.mau.fi/util v0.1.0 h1:BwIFWIOEeO7lsiI2eWKFkWTfc5yQmoe+0FYyOFVyaoE=

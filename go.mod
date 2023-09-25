@@ -11,10 +11,12 @@ require (
 	github.com/kbinani/screenshot v0.0.0-20230812210009-b87d31814237
 	github.com/mattn/go-sqlite3 v1.14.17
 	github.com/nsf/termbox-go v1.1.1
+	github.com/whatsauth/watoken v0.1.2
 	go.mau.fi/whatsmeow v0.0.0-20230916142552-a743fdc23bf1
 )
 
 require (
+	aidanwoods.dev/go-paseto v1.2.0 // indirect
 	filippo.io/edwards25519 v1.0.0 // indirect
 	github.com/StackExchange/wmi v1.2.1 // indirect
 	github.com/gen2brain/shm v0.0.0-20230802011745-f2460f5984f7 // indirect

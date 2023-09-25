@@ -66,7 +66,7 @@ func WhatsApp() {
 
 }
 
-func SendReportTo(filename string, groupid string) {
+func SendReportTo(filename string, groupid string, userid string) {
 	var to = types.JID{
 		User:   groupid,
 		Server: "g.us",
@@ -82,9 +82,10 @@ func SendReportTo(filename string, groupid string) {
 	if err != nil {
 		panic(err)
 	}
-	msg := "*Pomodoro Report 1 cycle*" + "\nHostname : " + Hostname + "\nIP : https://whatismyipaddress.com/ip/" + strings.TrimSpace(musik.GetIPaddress()) + "\nJumlah ScreenShoot : " + strconv.Itoa(len(ScreenShotStack))
 
+	msg := "*Pomodoro Report 1 cycle*" + "\nHostname : " + Hostname + "\nIP : https://whatismyipaddress.com/ip/" + strings.TrimSpace(musik.GetIPaddress()) + "\nJumlah ScreenShoot : " + strconv.Itoa(len(ScreenShotStack)) + "\n#" + userid
 	atmessage.SendImageMessage(filebyte, msg, to, WAclient)
+
 }
 
 func SendNotifTo(groupid string) {

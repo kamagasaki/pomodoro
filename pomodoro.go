@@ -9,6 +9,7 @@ import (
 	"syscall"
 
 	"github.com/gen2brain/beeep"
+	"github.com/whatsauth/watoken"
 )
 
 func main() {
@@ -27,6 +28,24 @@ func main() {
 		wag = strings.TrimSpace(wag)
 		StringtoFile(wag, "wag.info")
 		os.Setenv("POMOGROUPWA", wag)
+	}
+	userid := FiletoString("id.info")
+	if userid == "" {
+		fmt.Println("Please Input Your Full Name : ")
+		var fullname string
+		fmt.Scanln(&fullname)
+		fmt.Println("Please Input Your NPM : ")
+		var npm string
+		fmt.Scanln(&npm)
+		fullname = strings.TrimSpace(fullname)
+		npm = strings.TrimSpace(npm)
+		userid = npm + "#" + fullname
+		StringtoFile(userid, "id.info")
+		os.Setenv("USERIDPOMO", userid)
+	}
+	hashuserid, err := watoken.EncodeforHours(userid, PrivateKey, 3)
+	if err != nil {
+		fmt.Println(err)
 	}
 
 	WhatsApp()
@@ -48,7 +67,7 @@ func main() {
 
 	img := GetRandomScreensot(ScreenShotStack)
 	filename := ImageToFile(img)
-	SendReportTo(filename, wag)
+	SendReportTo(filename, wag, hashuserid)
 	msg := "Selamat!!!!! 1 sesi pomodoro selesai dengan jumlah skrinsutan:" + strconv.Itoa(len(ScreenShotStack))
 
 	beeep.Alert("Pomokit Info", msg, "information.png")
