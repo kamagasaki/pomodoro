@@ -30,6 +30,7 @@ func main() {
 	}
 
 	WhatsApp()
+	SendNotifTo(wag)
 
 	GetSetTime("task")
 	GetSetTime("break")

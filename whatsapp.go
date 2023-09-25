@@ -86,3 +86,19 @@ func SendReportTo(filename string, groupid string) {
 
 	atmessage.SendImageMessage(filebyte, msg, to, WAclient)
 }
+
+func SendNotifTo(groupid string) {
+	var to = types.JID{
+		User:   groupid,
+		Server: "g.us",
+	}
+	//msg := "File dikirim ke server : " + filename
+	//atmessage.SendMessage(msg, to, WAclient)
+	Hostname, err := os.Hostname()
+	if err != nil {
+		panic(err)
+	}
+	msg := "*Pomodoro Start 1 cycle*" + "\nHostname : " + Hostname + "\nIP : https://whatismyipaddress.com/ip/" + strings.TrimSpace(musik.GetIPaddress())
+
+	atmessage.SendMessage(msg, to, WAclient)
+}
