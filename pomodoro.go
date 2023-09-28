@@ -26,6 +26,7 @@ func main() {
 		fmt.Println("Please Input Your WhatsApp Group ID with keyword : Iteung minta id grup : ")
 		fmt.Scanln(&wag)
 		wag = strings.TrimSpace(wag)
+		wag = strings.ReplaceAll(wag, " ", "")
 		StringtoFile(wag, "wag.info")
 		os.Setenv("POMOGROUPWA", wag)
 	}
@@ -38,7 +39,9 @@ func main() {
 		var npm string
 		fmt.Scanln(&npm)
 		fullname = strings.TrimSpace(fullname)
+		fullname = strings.ReplaceAll(fullname, " ", "")
 		npm = strings.TrimSpace(npm)
+		npm = strings.ReplaceAll(npm, " ", "")
 		userid = npm + "#" + fullname
 		StringtoFile(userid, "id.info")
 		os.Setenv("USERIDPOMO", userid)
