@@ -4,6 +4,8 @@
 *.so
 *.db
 config.go
+pomodoroLinux64
+pomodoro
 # Folders
 _obj
 _test
