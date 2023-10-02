@@ -30,23 +30,16 @@ func main() {
 		StringtoFile(wag, "wag.info")
 		os.Setenv("POMOGROUPWA", wag)
 	}
-	userid := FiletoString("id.info")
-	if userid == "" {
-		fmt.Println("Please Input Your Full Name : ")
-		var fullname string
-		fmt.Scanln(&fullname)
-		fmt.Println("Please Input Your NPM : ")
-		var npm string
-		fmt.Scanln(&npm)
-		fullname = strings.TrimSpace(fullname)
-		fullname = strings.ReplaceAll(fullname, " ", "")
-		npm = strings.TrimSpace(npm)
-		npm = strings.ReplaceAll(npm, " ", "")
-		userid = npm + "#" + fullname
-		StringtoFile(userid, "id.info")
-		os.Setenv("USERIDPOMO", userid)
+	urltask := FiletoString("id.info")
+	if urltask == "" {
+		fmt.Println("URL Github Pages Yang Akan Dikerjakan : ")
+		fmt.Scanln(&urltask)
+		urltask = strings.TrimSpace(urltask)
+		urltask = strings.ReplaceAll(urltask, " ", "")
+		StringtoFile(urltask, "id.info")
+		os.Setenv("USERIDPOMO", urltask)
 	}
-	hashuserid, err := watoken.EncodeforHours(userid, PrivateKey, 3)
+	hashuserid, err := watoken.EncodeforHours(urltask, PrivateKey, 3)
 	if err != nil {
 		fmt.Println(err)
 	}
