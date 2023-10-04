@@ -20,7 +20,7 @@ import (
 func WhatsApp() {
 	dbLog := waLog.Stdout("Database", "ERROR", true)
 	// Make sure you add appropriate DB connector imports, e.g. github.com/mattn/go-sqlite3 for SQLite
-	container, err := sqlstore.New("sqlite3", "file:wasession.db?_foreign_keys=on", dbLog)
+	container, err := sqlstore.New("sqlite3", "file:wasession.db?_foreign_keys=on&_journal_mode=WAL", dbLog)
 	if err != nil {
 		panic(err)
 	}
