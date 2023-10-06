@@ -53,6 +53,9 @@ func main() {
 	if err != nil {
 		fmt.Println(err)
 	}
+	var milestone string
+	fmt.Println("Rencana yang akan anda kerjakan pada 1 cycle pomodoro sekarang : ")
+	fmt.Scanln(&milestone)
 
 	WhatsApp()
 	SendNotifTo(wag)
@@ -73,7 +76,7 @@ func main() {
 
 	img := GetRandomScreensot(ScreenShotStack)
 	filename := ImageToFile(img)
-	SendReportTo(filename, wag, hashuserid)
+	SendReportTo(filename, wag, milestone, hashuserid)
 	msg := "Selamat!!!!! 1 sesi pomodoro selesai dengan jumlah skrinsutan:" + strconv.Itoa(len(ScreenShotStack))
 
 	beeep.Alert("Pomokit Info", msg, "information.png")
