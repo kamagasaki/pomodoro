@@ -5,7 +5,6 @@ import (
 	"flag"
 	"fmt"
 	"image"
-	"os"
 	"runtime/debug"
 	"strconv"
 	"strings"
@@ -30,6 +29,7 @@ var silence = flag.Bool("silence", false, "Don't ring bell after countdown")
 
 var simple = flag.Bool("simple", true, "Display simple countdown")
 
+/*
 func init() {
 	const usage = `Usage of pomodoro %s:
 
@@ -46,7 +46,7 @@ Chimes system bell at the end of the timer, unless -silence is set.
 		flag.PrintDefaults()
 	}
 	flag.Parse()
-}
+} */
 
 func getVersion() string {
 	if i, ok := debug.ReadBuildInfo(); ok {

@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"net/http"
 	"os"
 	"os/signal"
 	"strconv"
@@ -36,6 +37,15 @@ func main() {
 		fmt.Scanln(&urltask)
 		urltask = strings.TrimSpace(urltask)
 		urltask = strings.ReplaceAll(urltask, " ", "")
+		urlvalid, msgerrurl := CheckURLStatus(urltask)
+		for !urlvalid {
+			beeep.Alert("Invalid Github Pages", "URL Github Pages Tidak Valid : "+msgerrurl, "information.png")
+			fmt.Println("URL Github Pages Invalid, Masukkan kembali URL yang benar : ")
+			fmt.Scanln(&urltask)
+			urltask = strings.TrimSpace(urltask)
+			urltask = strings.ReplaceAll(urltask, " ", "")
+			urlvalid, msgerrurl = CheckURLStatus(urltask)
+		}
 		StringtoFile(urltask, "id.info")
 		os.Setenv("USERIDPOMO", urltask)
 	}
@@ -76,4 +86,20 @@ func main() {
 
 	WAclient.Disconnect()
 
+}
+
+func CheckURLStatus(url string) (status bool, msg string) {
+	response, err := http.Get(url)
+	if err != nil {
+		msg = err.Error()
+	} else {
+		msg = response.Status
+		if msg == "200 OK" {
+			if strings.Contains(url, ".github.io") {
+				status = true
+			}
+		}
+	}
+	defer response.Body.Close()
+	return
 }

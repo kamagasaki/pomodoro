@@ -12,7 +12,7 @@ require (
 	github.com/mattn/go-sqlite3 v1.14.17
 	github.com/nsf/termbox-go v1.1.1
 	github.com/whatsauth/watoken v0.1.2
-	go.mau.fi/whatsmeow v0.0.0-20230916142552-a743fdc23bf1
+	go.mau.fi/whatsmeow v0.0.0-20230929093856-69d5ba6fa3e3
 )
 
 require (
