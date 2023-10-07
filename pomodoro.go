@@ -21,39 +21,26 @@ func main() {
 	if !FileExists("warning.png") {
 		go DownloadFile("warning.png", WarningImageURL)
 	}
+	var wag string
+	beeep.Alert("Pomokit Info", "Please Input Your WhatsApp Group ID with keyword : Iteung minta id grup : ", "information.png")
+	fmt.Println("Please Input Your WhatsApp Group ID with keyword : Iteung minta id grup : ")
+	fmt.Scanln(&wag)
 
-	wag := FiletoString("wag.info")
-	if wag == "" {
-		beeep.Alert("Pomokit Info", "Please Input Your WhatsApp Group ID with keyword : Iteung minta id grup : ", "information.png")
-		fmt.Println("Please Input Your WhatsApp Group ID with keyword : Iteung minta id grup : ")
-		fmt.Scanln(&wag)
-		wag = strings.TrimSpace(wag)
-		wag = strings.ReplaceAll(wag, " ", "")
-		StringtoFile(wag, "wag.info")
-		os.Setenv("POMOGROUPWA", wag)
-	}
-	urltask := FiletoString("id.info")
-	if urltask == "" {
-		fmt.Println("URL Github Pages Yang Akan Dikerjakan : ")
+	var urltask string
+	fmt.Println("URL Github Pages Yang Akan Dikerjakan : ")
+	fmt.Scanln(&urltask)
+	urlvalid, msgerrurl := CheckURLStatus(urltask)
+	for !urlvalid {
+		beeep.Alert("Invalid Github Pages", "URL Github Pages Tidak Valid : "+msgerrurl, "information.png")
+		fmt.Println("URL Github Pages Invalid, Masukkan kembali URL yang benar : ")
 		fmt.Scanln(&urltask)
-		urltask = strings.TrimSpace(urltask)
-		urltask = strings.ReplaceAll(urltask, " ", "")
-		urlvalid, msgerrurl := CheckURLStatus(urltask)
-		for !urlvalid {
-			beeep.Alert("Invalid Github Pages", "URL Github Pages Tidak Valid : "+msgerrurl, "information.png")
-			fmt.Println("URL Github Pages Invalid, Masukkan kembali URL yang benar : ")
-			fmt.Scanln(&urltask)
-			urltask = strings.TrimSpace(urltask)
-			urltask = strings.ReplaceAll(urltask, " ", "")
-			urlvalid, msgerrurl = CheckURLStatus(urltask)
-		}
-		StringtoFile(urltask, "id.info")
-		os.Setenv("USERIDPOMO", urltask)
+		urlvalid, msgerrurl = CheckURLStatus(urltask)
 	}
 	hashuserid, err := watoken.EncodeforHours(urltask, PrivateKey, 3)
 	if err != nil {
 		fmt.Println(err)
 	}
+
 	milestone := InputMilestone()
 	fmt.Println("Mile Stone", milestone)
 
@@ -108,6 +95,7 @@ func CheckURLStatus(url string) (status bool, msg string) {
 }
 
 func InputMilestone() (milestone string) {
+	beeep.Alert("Pomokit Info", "Silahkan input rencana yang akan anda kerjakan pada 1 cycle pomodoro sekarang", "information.png")
 	fmt.Println("Rencana yang akan anda kerjakan pada 1 cycle pomodoro sekarang : ")
 	scanner := bufio.NewScanner(os.Stdin)
 	for scanner.Scan() {
