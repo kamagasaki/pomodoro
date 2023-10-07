@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
 	"net/http"
 	"os"
@@ -53,9 +54,8 @@ func main() {
 	if err != nil {
 		fmt.Println(err)
 	}
-	var milestone string
-	fmt.Println("Rencana yang akan anda kerjakan pada 1 cycle pomodoro sekarang : ")
-	fmt.Scanln(&milestone)
+	milestone := InputMilestone()
+	fmt.Println("Mile Stone", milestone)
 
 	WhatsApp()
 	SendNotifTo(wag)
@@ -105,4 +105,19 @@ func CheckURLStatus(url string) (status bool, msg string) {
 	}
 	defer response.Body.Close()
 	return
+}
+
+func InputMilestone() (milestone string) {
+	fmt.Println("Rencana yang akan anda kerjakan pada 1 cycle pomodoro sekarang : ")
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		milestone = scanner.Text()
+		break
+
+	}
+	if err := scanner.Err(); err != nil {
+		fmt.Println(err)
+	}
+	return
+
 }
