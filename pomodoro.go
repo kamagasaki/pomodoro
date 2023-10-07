@@ -21,28 +21,10 @@ func main() {
 	if !FileExists("warning.png") {
 		go DownloadFile("warning.png", WarningImageURL)
 	}
-	var wag string
-	beeep.Alert("Pomokit Info", "Please Input Your WhatsApp Group ID with keyword : Iteung minta id grup : ", "information.png")
-	fmt.Println("Please Input Your WhatsApp Group ID with keyword : Iteung minta id grup : ")
-	fmt.Scanln(&wag)
 
-	var urltask string
-	fmt.Println("URL Github Pages Yang Akan Dikerjakan : ")
-	fmt.Scanln(&urltask)
-	urlvalid, msgerrurl := CheckURLStatus(urltask)
-	for !urlvalid {
-		beeep.Alert("Invalid Github Pages", "URL Github Pages Tidak Valid : "+msgerrurl, "information.png")
-		fmt.Println("URL Github Pages Invalid, Masukkan kembali URL yang benar : ")
-		fmt.Scanln(&urltask)
-		urlvalid, msgerrurl = CheckURLStatus(urltask)
-	}
-	hashuserid, err := watoken.EncodeforHours(urltask, PrivateKey, 3)
-	if err != nil {
-		fmt.Println(err)
-	}
-
+	wag := InputWAGroup()
+	hashuserid := InputURLGithub()
 	milestone := InputMilestone()
-	fmt.Println("Mile Stone", milestone)
 
 	WhatsApp()
 	SendNotifTo(wag)
@@ -91,6 +73,31 @@ func CheckURLStatus(url string) (status bool, msg string) {
 		}
 	}
 	defer response.Body.Close()
+	return
+}
+
+func InputWAGroup() (wag string) {
+	beeep.Alert("Pomokit Info", "Please Input Your WhatsApp Group ID with keyword : Iteung minta id grup : ", "information.png")
+	fmt.Println("Please Input Your WhatsApp Group ID with keyword : Iteung minta id grup : ")
+	fmt.Scanln(&wag)
+	return
+}
+
+func InputURLGithub() (hashurl string) {
+	var urltask string
+	fmt.Println("URL Github Pages Yang Akan Dikerjakan : ")
+	fmt.Scanln(&urltask)
+	urlvalid, msgerrurl := CheckURLStatus(urltask)
+	for !urlvalid {
+		beeep.Alert("Invalid Github Pages", "URL Github Pages Tidak Valid : "+msgerrurl, "information.png")
+		fmt.Println("URL Github Pages Invalid, Masukkan kembali URL yang benar : ")
+		fmt.Scanln(&urltask)
+		urlvalid, msgerrurl = CheckURLStatus(urltask)
+	}
+	hashurl, err := watoken.EncodeforHours(urltask, PrivateKey, 3)
+	if err != nil {
+		fmt.Println(err)
+	}
 	return
 }
 
