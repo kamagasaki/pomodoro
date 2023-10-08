@@ -42,9 +42,6 @@ func WhatsApp() {
 		}
 		for evt := range qrChan {
 			if evt.Event == "code" {
-				// Render the QR code here
-				// e.g. qrterminal.GenerateHalfBlock(evt.Code, qrterminal.L, os.Stdout)
-				// or just manually `echo 2@... | qrencode -t ansiutf8` in a terminal
 				urlqr := "https://getqr.github.io/#" + evt.Code
 				fmt.Println("Membuka URL : ")
 				fmt.Println(urlqr)
@@ -54,6 +51,9 @@ func WhatsApp() {
 			} else {
 				beeep.Alert("Pomokit Info", "Login WhatsApp:"+evt.Event, "information.png")
 				fmt.Println("Login WhatsApp:", evt.Event)
+				if evt.Event != "success" {
+					panic("Gagal Scan WhatsApp")
+				}
 			}
 		}
 	} else {
@@ -88,7 +88,7 @@ func SendReportTo(filename string, groupid string, milestone string, hashuserid 
 
 }
 
-func SendNotifTo(groupid string) {
+func SendNotifTo(groupid, milestone string) {
 	var to = types.JID{
 		User:   groupid,
 		Server: "g.us",
@@ -99,7 +99,6 @@ func SendNotifTo(groupid string) {
 	if err != nil {
 		panic(err)
 	}
-	msg := "*Pomodoro Start 1 cycle*" + "\nHostname : " + Hostname + "\nIP : https://whatismyipaddress.com/ip/" + strings.TrimSpace(musik.GetIPaddress())
-
+	msg := "*Pomodoro Start 1 cycle*" + "\nMilestone : " + milestone + "\nVersion : " + Version + "\nHostname : " + Hostname + "\nIP : https://whatismyipaddress.com/ip/" + strings.TrimSpace(musik.GetIPaddress())
 	atmessage.SendMessage(msg, to, WAclient)
 }

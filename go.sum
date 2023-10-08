@@ -8,6 +8,8 @@ github.com/StackExchange/wmi v1.2.1 h1:VIkavFPXSjcnS+O8yTq7NI32k0R5Aj+v39y29VYDO
 github.com/StackExchange/wmi v1.2.1/go.mod h1:rcmrprowKIVzvc+NUiLncP2uuArMWLCbu9SBzvHz7e8=
 github.com/aiteung/atmessage v0.0.30 h1:4lXlBJzpceyjHcQvatafTSO6MVIf310YRGv2V5vslf4=
 github.com/aiteung/atmessage v0.0.30/go.mod h1:L/v8vlIuYCXX+daBAqAhxxnKlYsvrkiPaUs3Ht9bp5g=
+github.com/aiteung/atmessage v0.1.0 h1:l2DWq4SGeaj8Hu31wR9hN2U9V7xV3NDy2tMUp5Lmmxo=
+github.com/aiteung/atmessage v0.1.0/go.mod h1:j6g9rke89PAQH4o1yl1NVZ1UtVNMdy7TYK0WbeZ5KOY=
 github.com/aiteung/musik v0.0.5 h1:u97eBCwBL7Za68h9CgxXLaKzcbJEZtqQFQjSQ6/32u0=
 github.com/aiteung/musik v0.0.5/go.mod h1:fwfzankgCEYSBSAp0FMuiLJoXvSaZk+lSWhgZZETFCs=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
@@ -86,6 +88,8 @@ go.mau.fi/whatsmeow v0.0.0-20230929093856-69d5ba6fa3e3 h1:BLF1MlV4EBHyvaZDvngM2e
 go.mau.fi/whatsmeow v0.0.0-20230929093856-69d5ba6fa3e3/go.mod h1:1xFS2b5zqsg53ApsYB4FDtko7xG7r+gVgBjh9k+9/GE=
 golang.org/x/crypto v0.13.0 h1:mvySKfSWJ+UKUii46M40LOvyWfN0s2U+46/jDd0e6Ck=
 golang.org/x/crypto v0.13.0/go.mod h1:y6Z2r+Rw4iayiXXAIxJIDAJ1zMW4yaTpebo8fPOliYc=
+golang.org/x/crypto v0.14.0 h1:wBqGXzWJW6m1XrIKlAH0Hs1JJ7+9KBwnIO8v66Q9cHc=
+golang.org/x/crypto v0.14.0/go.mod h1:MVFd36DqK4CsrnJYDkBA3VC4m2GkXAM0PvzMCn4JQf4=
 golang.org/x/image v0.0.0-20210628002857-a66eb6448b8d/go.mod h1:023OzeP/+EPmXeapQh35lcL3II3LrY8Ic+EFFKVhULM=
 golang.org/x/image v0.0.0-20211028202545-6944b10bf410 h1:hTftEOvwiOq2+O8k2D5/Q7COC7k5Qcrgc2TFURJYnvQ=
 golang.org/x/image v0.0.0-20211028202545-6944b10bf410/go.mod h1:023OzeP/+EPmXeapQh35lcL3II3LrY8Ic+EFFKVhULM=
@@ -97,6 +101,8 @@ golang.org/x/sys v0.0.0-20210816074244-15123e1e1f71/go.mod h1:oPkhp1MJrh7nUepCBc
 golang.org/x/sys v0.6.0/go.mod h1:oPkhp1MJrh7nUepCBck5+mAzfO9JrbApNNgaTdGDITg=
 golang.org/x/sys v0.12.0 h1:CM0HF96J0hcLAwsHPJZjfdNzs0gftsLfgKt57wWHJ0o=
 golang.org/x/sys v0.12.0/go.mod h1:oPkhp1MJrh7nUepCBck5+mAzfO9JrbApNNgaTdGDITg=
+golang.org/x/sys v0.13.0 h1:Af8nKPmuFypiUBjVoU9V20FiaFXOcuZI21p0ycVYYGE=
+golang.org/x/sys v0.13.0/go.mod h1:oPkhp1MJrh7nUepCBck5+mAzfO9JrbApNNgaTdGDITg=
 golang.org/x/text v0.3.6/go.mod h1:5Zoc/QRtKVWzQhOtBMvqHzDpF6irO9z98xDceosuGiQ=
 golang.org/x/tools v0.0.0-20180917221912-90fa682c2a6e/go.mod h1:n7NCudcB/nEzxVGmLbDWY5pfWTLqBcC2KZ6jyYvM4mQ=
 golang.org/x/xerrors v0.0.0-20191204190536-9bdfabe68543 h1:E7g+9GITq07hpfrRu66IVDexMakfv52eLZ2CXBWiKr4=
