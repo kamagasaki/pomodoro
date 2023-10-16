@@ -3,31 +3,45 @@ package main
 import (
 	"bufio"
 	"fmt"
-	"net/http"
-	"os"
-	"strings"
-
 	"github.com/gen2brain/beeep"
 	"github.com/whatsauth/watoken"
+	"net/http"
+	"net/url"
+	"os"
+	"strings"
 )
 
 func CheckURLStatus(url string) (status bool, msg string) {
+	if ValidUrl(url) {
+		return
+	}
+
 	response, err := http.Get(url)
+	defer response.Body.Close()
 	if err != nil {
 		msg = err.Error()
-	} else {
-		msg = response.Status
-		if msg == "200 OK" {
-			if strings.Contains(url, ".github.io") {
-				if !strings.Contains(url, "github.com") {
-					status = true
-				}
+		return
+	}
 
+	msg = response.Status
+	if msg == "200 OK" {
+		if strings.Contains(url, ".github.io") {
+			if !strings.Contains(url, "github.com") {
+				status = true
 			}
+		} else if strings.Contains(url, ".google.com") {
+			status = true
 		}
 	}
-	defer response.Body.Close()
 	return
+}
+
+func ValidUrl(urllink string) bool {
+	_, er := url.Parse(urllink)
+	if er != nil {
+		return false
+	}
+	return true
 }
 
 func InputWAGroup() (wag string) {
@@ -39,12 +53,12 @@ func InputWAGroup() (wag string) {
 
 func InputURLGithub() (hashurl string) {
 	var urltask string
-	fmt.Println("URL Github Pages Yang Akan Dikerjakan : ")
+	fmt.Println("URL Github Pages atau Google Drive Yang Akan Dikerjakan : ")
 	fmt.Scanln(&urltask)
 	urlvalid, msgerrurl := CheckURLStatus(urltask)
 	for !urlvalid {
-		beeep.Alert("Invalid Github Pages", "URL Github Pages Tidak Valid : "+msgerrurl, "information.png")
-		fmt.Println("URL Github Pages Invalid, Masukkan kembali URL yang benar : ")
+		beeep.Alert("Invalid Link", "URL Tidak Valid : "+msgerrurl, "information.png")
+		fmt.Println("URL Invalid, Masukkan kembali URL yang benar : ")
 		fmt.Scanln(&urltask)
 		urlvalid, msgerrurl = CheckURLStatus(urltask)
 	}
