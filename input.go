@@ -12,17 +12,16 @@ import (
 )
 
 func CheckURLStatus(url string) (status bool, msg string) {
-	if ValidUrl(url) {
+	if !ValidUrl(url) {
 		return
 	}
 
 	response, err := http.Get(url)
-	defer response.Body.Close()
 	if err != nil {
 		msg = err.Error()
 		return
 	}
-
+	defer response.Body.Close()
 	msg = response.Status
 	if msg == "200 OK" {
 		if strings.Contains(url, ".github.io") {
