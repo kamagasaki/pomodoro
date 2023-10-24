@@ -3,12 +3,13 @@ package main
 import (
 	"bufio"
 	"fmt"
-	"github.com/gen2brain/beeep"
-	"github.com/whatsauth/watoken"
 	"net/http"
 	"net/url"
 	"os"
 	"strings"
+
+	"github.com/gen2brain/beeep"
+	"github.com/whatsauth/watoken"
 )
 
 func CheckURLStatus(url string) (status bool, msg string) {
@@ -29,6 +30,16 @@ func CheckURLStatus(url string) (status bool, msg string) {
 				status = true
 			}
 		} else if strings.Contains(url, ".google.com") {
+			status = true
+		} else if strings.Contains(url, "cdn.jsdelivr.net") {
+			status = true
+		} else if strings.Contains(url, "pkg.go.dev") {
+			status = true
+		} else if strings.Contains(url, "npmjs.org") {
+			status = true
+		} else if strings.Contains(url, "pypi.org") {
+			status = true
+		} else if strings.Contains(url, "packagist.org") {
 			status = true
 		}
 	}
@@ -52,7 +63,7 @@ func InputWAGroup() (wag string) {
 
 func InputURLGithub() (hashurl string) {
 	var urltask string
-	fmt.Println("URL Github Pages atau Google Drive Yang Akan Dikerjakan : ")
+	fmt.Println("input URL Yang Akan Dikerjakan(copas dari browser) : ")
 	fmt.Scanln(&urltask)
 	urlvalid, msgerrurl := CheckURLStatus(urltask)
 	for !urlvalid {
