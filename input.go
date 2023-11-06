@@ -41,6 +41,8 @@ func CheckURLStatus(url string) (status bool, msg string) {
 			status = true
 		} else if strings.Contains(url, "packagist.org") {
 			status = true
+		} else if strings.Contains(url, ".my.id") {
+			status = true
 		}
 	}
 	return
