@@ -43,6 +43,8 @@ func CheckURLStatus(url string) (status bool, msg string) {
 			status = true
 		} else if strings.Contains(url, ".my.id") {
 			status = true
+		}else if strings.Contains(url, ".me/") {
+			status = true
 		}
 	}
 	return
