@@ -37,7 +37,7 @@ func SimpleBreakCountdown(target time.Time, formatter func(time.Duration) string
 			fmt.Print("Countdown: ", formatter(0), "   \r")
 			return
 		}
-		robotgo.DragSmooth(X, Y)
+		robotgo.DragMouse(X, Y)
 		fmt.Fprint(os.Stdout, "Countdown: ", formatter(timeLeft), "   \r")
 		os.Stdout.Sync()
 	}

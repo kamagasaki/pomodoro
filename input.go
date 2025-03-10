@@ -52,10 +52,7 @@ func CheckURLStatus(url string) (status bool, msg string) {
 
 func ValidUrl(urllink string) bool {
 	_, er := url.Parse(urllink)
-	if er != nil {
-		return false
-	}
-	return true
+	return er == nil
 }
 
 func InputWAGroup() (wag string) {
@@ -76,7 +73,9 @@ func InputURLGithub() (hashurl string) {
 		fmt.Scanln(&urltask)
 		urlvalid, msgerrurl = CheckURLStatus(urltask)
 	}
-	hashurl, err := watoken.EncodeforHours(urltask, PrivateKey, 3)
+	var alias = urltask
+	var PrivateKey = "null"
+	hashurl, err := watoken.EncodeforHours(urltask, PrivateKey, alias, 3)
 	if err != nil {
 		fmt.Println(err)
 	}

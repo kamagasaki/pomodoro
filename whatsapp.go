@@ -17,6 +17,9 @@ import (
 	waLog "go.mau.fi/whatsmeow/util/log"
 )
 
+// Version of the application
+var Version = "1.0.0"
+
 func WhatsApp() {
 	dbLog := waLog.Stdout("Database", "ERROR", true)
 	// Make sure you add appropriate DB connector imports, e.g. github.com/mattn/go-sqlite3 for SQLite
@@ -83,7 +86,7 @@ func SendReportTo(filename string, groupid string, milestone string, hashuserid 
 		panic(err)
 	}
 
-	msg := "*Iteung Pomodoro Report 1 cycle*" + "\nHostname : " + Hostname + "\nIP : https://whatismyipaddress.com/ip/" + strings.TrimSpace(musik.GetIPaddress()) + "\nJumlah ScreenShoot : " + strconv.Itoa(len(ScreenShotStack)) + "\nYang Dikerjakan :\n|" + milestone + "\n#" + hashuserid
+	msg := "*Myika Pomodoro Report 1 cycle*" + "\nHostname : " + Hostname + "\nIP : https://whatismyipaddress.com/ip/" + strings.TrimSpace(musik.GetIPaddress()) + "\nJumlah ScreenShoot : " + strconv.Itoa(len(ScreenShotStack)) + "\nYang Dikerjakan :\n|" + milestone + "\n#" + hashuserid
 	atmessage.SendImageMessage(filebyte, msg, to, WAclient)
 
 }
