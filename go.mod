@@ -11,8 +11,9 @@ require (
 	github.com/kbinani/screenshot v0.0.0-20250118074034-a3924b7bbc8c
 	github.com/mattn/go-sqlite3 v1.14.24
 	github.com/nsf/termbox-go v1.1.1
+	github.com/robotn/gohook v0.42.0
 	github.com/whatsauth/watoken v0.1.7
-	go.mau.fi/whatsmeow v0.0.0-20250307203951-daf102be9698
+	go.mau.fi/whatsmeow v0.0.0-20250311112832-01523b1e7109
 )
 
 require (

@@ -43,7 +43,7 @@ func CheckURLStatus(url string) (status bool, msg string) {
 			status = true
 		} else if strings.Contains(url, ".my.id") {
 			status = true
-		}else if strings.Contains(url, ".me/") {
+		} else if strings.Contains(url, ".me/") {
 			status = true
 		}
 	}
@@ -75,7 +75,7 @@ func InputURLGithub() (hashurl string) {
 	}
 	var alias = urltask
 	var PrivateKey = "null"
-	hashurl, err := watoken.EncodeforHours(urltask, PrivateKey, alias, 3)
+	hashurl, err := watoken.EncodeforHours(urltask, alias, PrivateKey, 3)
 	if err != nil {
 		fmt.Println(err)
 	}
