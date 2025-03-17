@@ -18,7 +18,7 @@ import (
 )
 
 // Version of the application
-var Version = "1.0.1"
+var Version = "0.2.3"
 
 func WhatsApp() {
 	dbLog := waLog.Stdout("Database", "ERROR", true)
@@ -79,16 +79,33 @@ func SendReportTo(filename string, groupid string, milestone string, hashuserid 
 		fmt.Println(err)
 	}
 
-	//msg := "File dikirim ke server : " + filename
-	//atmessage.SendMessage(msg, to, WAclient)
 	Hostname, err := os.Hostname()
 	if err != nil {
 		panic(err)
 	}
 
-	msg := "*Myika Pomodoro Report 1 cycle*" + "\nHostname : " + Hostname + "\nIP : https://whatismyipaddress.com/ip/" + strings.TrimSpace(musik.GetIPaddress()) + "\nJumlah ScreenShoot : " + strconv.Itoa(len(ScreenShotStack)) + "\nYang Dikerjakan :\n|" + milestone + "\n#" + hashuserid
-	atmessage.SendImageMessage(filebyte, msg, to, WAclient)
+	// Buat pesan dasar
+	msg := "*Myika Pomodoro Report 1 cycle*" +
+		"\nHostname : " + Hostname +
+		"\nIP : https://whatismyipaddress.com/ip/" + strings.TrimSpace(musik.GetIPaddress()) +
+		"\nJumlah ScreenShoot : " + strconv.Itoa(len(ScreenShotStack)) +
+		"\nYang Dikerjakan :\n|" + milestone +
+		"\n#" + hashuserid
 
+	// Cek apakah URL asli adalah GTmetrix dan lakukan scraping jika iya
+	if strings.Contains(OriginalURL, "gtmetrix.com") {
+		data, err := ScrapeGTmetrixData(OriginalURL)
+		if err == nil && len(data) > 0 {
+			// Tambahkan laporan GTmetrix ke pesan
+			gtmetrixReport := FormatGTmetrixReport(data, OriginalURL)
+			msg += gtmetrixReport
+		} else {
+			fmt.Println("Error scraping GTmetrix data:", err)
+		}
+	}
+
+	// Kirim pesan dengan gambar
+	atmessage.SendImageMessage(filebyte, msg, to, WAclient)
 }
 
 func SendNotifTo(groupid, milestone string) {
