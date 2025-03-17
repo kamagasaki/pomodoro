@@ -11,20 +11,43 @@ require (
 	github.com/kbinani/screenshot v0.0.0-20250118074034-a3924b7bbc8c
 	github.com/mattn/go-sqlite3 v1.14.24
 	github.com/nsf/termbox-go v1.1.1
-	github.com/robotn/gohook v0.42.0
 	github.com/whatsauth/watoken v0.1.7
 	go.mau.fi/whatsmeow v0.0.0-20250311112832-01523b1e7109
+)
+
+require (
+	github.com/andybalholm/cascadia v1.3.3 // indirect
+	github.com/antchfx/htmlquery v1.2.3 // indirect
+	github.com/antchfx/xmlquery v1.2.4 // indirect
+	github.com/antchfx/xpath v1.1.8 // indirect
+	github.com/chromedp/cdproto v0.0.0-20250222051814-50c6cb17f10a // indirect
+	github.com/chromedp/sysutil v1.1.0 // indirect
+	github.com/go-json-experiment/json v0.0.0-20250211171154-1ae217ad3535 // indirect
+	github.com/gobwas/glob v0.2.3 // indirect
+	github.com/gobwas/httphead v0.1.0 // indirect
+	github.com/gobwas/pool v0.2.1 // indirect
+	github.com/gobwas/ws v1.4.0 // indirect
+	github.com/golang/groupcache v0.0.0-20200121045136-8c9f03a8e57e // indirect
+	github.com/golang/protobuf v1.5.0 // indirect
+	github.com/kennygrant/sanitize v1.2.4 // indirect
+	github.com/saintfish/chardet v0.0.0-20120816061221-3af4cd4741ca // indirect
+	github.com/temoto/robotstxt v1.1.1 // indirect
+	golang.org/x/text v0.22.0 // indirect
+	google.golang.org/appengine v1.6.6 // indirect
 )
 
 require (
 	aidanwoods.dev/go-paseto v1.5.2 // indirect
 	aidanwoods.dev/go-result v0.1.0 // indirect
 	filippo.io/edwards25519 v1.1.0 // indirect
+	github.com/PuerkitoBio/goquery v1.10.2 // indirect
+	github.com/chromedp/chromedp v0.13.1
 	github.com/dblohm7/wingoes v0.0.0-20240820181039-f2b84150679e // indirect
 	github.com/ebitengine/purego v0.8.2 // indirect
 	github.com/gen2brain/shm v0.1.1 // indirect
 	github.com/go-ole/go-ole v1.3.0 // indirect
 	github.com/go-toast/toast v0.0.0-20190211030409-01e6764cf0a4 // indirect
+	github.com/gocolly/colly/v2 v2.1.0
 	github.com/godbus/dbus/v5 v5.1.0 // indirect
 	github.com/gorilla/websocket v1.5.3 // indirect
 	github.com/jezek/xgb v1.1.1 // indirect
