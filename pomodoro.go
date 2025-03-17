@@ -2,15 +2,19 @@ package main
 
 import (
 	"fmt"
+	"math/rand"
 	"os"
 	"os/signal"
 	"strconv"
 	"syscall"
+	"time"
 
 	"github.com/gen2brain/beeep"
 )
 
 func main() {
+	rand.Seed(time.Now().UnixNano())
+
 	if !FileExists("information.png") {
 		go DownloadFile("information.png", InfoImageURL)
 	}
@@ -19,7 +23,7 @@ func main() {
 	}
 
 	wag := InputWAGroup()
-	hashuserid := InputURLGithub()
+	InputURLGithub()
 	milestone := InputMilestone()
 
 	WhatsApp()
@@ -41,7 +45,12 @@ func main() {
 
 	img := GetRandomScreensot(ScreenShotStack)
 	filename := ImageToFile(img)
-	SendReportTo(filename, wag, milestone, hashuserid)
+
+	if time.Since(tokenCreationTime) > (2 * time.Hour) {
+		RefreshToken() // Memperbarui currentHashURL
+	}
+
+	SendReportTo(filename, wag, milestone, currentHashURL)
 	msg := "Selamat!!!!! 1 sesi pomodoro selesai dengan jumlah skrinsutan:" + strconv.Itoa(len(ScreenShotStack))
 
 	beeep.Alert("Pomokit Info", msg, "information.png")
