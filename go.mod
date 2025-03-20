@@ -8,7 +8,7 @@ require (
 	github.com/gen2brain/beeep v0.0.0-20240516210008-9c006672e7f4
 	github.com/go-vgo/robotgo v0.110.6
 	github.com/google/uuid v1.6.0
-	github.com/kamagasaki/macapture v1.0.1
+	github.com/kamagasaki/macapture v1.0.2
 	github.com/mattn/go-sqlite3 v1.14.24
 	github.com/nsf/termbox-go v1.1.1
 	github.com/whatsauth/watoken v0.1.7
