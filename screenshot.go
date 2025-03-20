@@ -10,7 +10,7 @@ import (
 	"os"
 
 	"github.com/google/uuid"
-	"github.com/kbinani/screenshot"
+	"github.com/kamagasaki/macapture"
 )
 
 func TakeScreenshot() {
