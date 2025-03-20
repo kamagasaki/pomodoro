@@ -10,7 +10,7 @@ import (
 	"time"
 
 	"github.com/gen2brain/beeep"
-	"github.com/go-vgo/robotgo"
+	"github.com/kamagasaki/robotgo"
 	"github.com/whatsauth/watoken"
 )
 

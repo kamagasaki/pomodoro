@@ -6,9 +6,9 @@ require (
 	github.com/aiteung/atmessage v0.1.2
 	github.com/aiteung/musik v0.0.5
 	github.com/gen2brain/beeep v0.0.0-20240516210008-9c006672e7f4
-	github.com/go-vgo/robotgo v0.110.6
 	github.com/google/uuid v1.6.0
-	github.com/kamagasaki/macapture v1.0.1
+	github.com/kamagasaki/macapture v1.0.2
+	github.com/kamagasaki/robotgo v0.0.2
 	github.com/mattn/go-sqlite3 v1.14.24
 	github.com/nsf/termbox-go v1.1.1
 	github.com/whatsauth/watoken v0.1.7
@@ -23,13 +23,13 @@ require (
 	github.com/chromedp/cdproto v0.0.0-20250319231242-a755498943c8 // indirect
 	github.com/chromedp/sysutil v1.1.0 // indirect
 	github.com/go-json-experiment/json v0.0.0-20250223041408-d3c622f1b874 // indirect
+	github.com/go-vgo/robotgo v0.110.6 // indirect
 	github.com/gobwas/glob v0.2.3 // indirect
 	github.com/gobwas/httphead v0.1.0 // indirect
 	github.com/gobwas/pool v0.2.1 // indirect
 	github.com/gobwas/ws v1.4.0 // indirect
 	github.com/golang/groupcache v0.0.0-20241129210726-2c02b8208cf8 // indirect
 	github.com/golang/protobuf v1.5.4 // indirect
-	github.com/kbinani/screenshot v0.0.0-20250118074034-a3924b7bbc8c // indirect
 	github.com/kennygrant/sanitize v1.2.4 // indirect
 	github.com/rivo/uniseg v0.4.7 // indirect
 	github.com/saintfish/chardet v0.0.0-20230101081208-5e3ef4b5456d // indirect
@@ -60,7 +60,6 @@ require (
 	github.com/mattn/go-runewidth v0.0.16 // indirect
 	github.com/nu7hatch/gouuid v0.0.0-20131221200532-179d4d0c4d8d // indirect
 	github.com/otiai10/gosseract v2.2.1+incompatible // indirect
-	github.com/otiai10/mint v1.6.3 // indirect
 	github.com/power-devops/perfstat v0.0.0-20240221224432-82ca36839d55 // indirect
 	github.com/robotn/xgb v0.10.0 // indirect
 	github.com/robotn/xgbutil v0.10.0 // indirect
